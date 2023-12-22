@@ -47,14 +47,14 @@ class CustomLabelEncoder2(BaseEstimator, TransformerMixin):
 # loading the saved model
 loaded_model = pickle.load(open('bank_marketing_prediction.sav', 'rb'))
 
-# Creating a function for Prediction
 def bank_marketing_prediction(input_data):
+    # Correct the feature names to match the training data
     column_names = ['age', 'job', 'marital', 'education', 'default', 'housing', 'loan',
                     'contact', 'month', 'day_of_week', 'campaign', 'pdays', 'previous', 
-                    'poutcome', 'emp_var_rate', 'cons_price_idx', 'cons_conf_idx', 
-                    'euribor3m', 'nr_employed']
-    input_df = pd.DataFrame([input_data], columns=column_names)
+                    'poutcome', 'emp.var.rate', 'cons.price.idx', 'cons.conf.idx', 
+                    'euribor3m', 'nr.employed']  # Use dot notation instead of underscores
 
+    input_df = pd.DataFrame([input_data], columns=column_names)
     prediction = loaded_model.predict(input_df)
     return prediction[0]
 
