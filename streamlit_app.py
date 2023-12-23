@@ -22,7 +22,7 @@ class CustomFeaturesAdder(BaseEstimator, TransformerMixin):
         
         return X_new
 
-class CustomLabelEncoder2(BaseEstimator, TransformerMixin):
+class CustomLabelEncoder(BaseEstimator, TransformerMixin):
     def __init__(self, categorical_columns):
         self.categorical_columns = categorical_columns
         self.encoders = None
